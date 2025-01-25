@@ -1,6 +1,6 @@
 ---
-title: "My Document"
-author: "Deden Istiawan-Institut Teknologi Statistika dan Bisnis Muhammadiyah"
+title: "Visualisasi Data dengan Berbagai Macam Grafik"
+author: "**Ameliatus Sholichah(A3202300024)<br>Institut Teknologi Statistika dan Bisnis Muhammadiyah Semarang**"
 date: "`r Sys.Date()`"
 output: 
   html_document:
@@ -23,7 +23,7 @@ text-align: justify}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# R Markdown
+# 1 Deskripsi
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents [@deCarvalho2012]. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
