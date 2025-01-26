@@ -4,6 +4,7 @@ author: "**Ameliatus Sholichah(A3202300024)<br>Institut Teknologi Statistika dan
 date: "`r Sys.Date()`"
 output: 
   html_document:
+    css: style.css
     theme: flatly
     higlight: zenburn
     toc: true
@@ -43,15 +44,8 @@ Dengan kata lain, tujuan visualisasi data adalah untuk mengubah data menjadi waw
 
 *  **Desain Visualisasi**
     *   **Pemilihan Warna:** Apa alasan di balik pemilihan warna dalam grafik? Apakah warna yang digunakan memiliki arti tertentu (misalnya, warna untuk kategori, status, dll.)?
-    *   **Skala dan Sumbu:** Apakah skala data yang digunakan sesuai dengan jenis grafik? Misalnya, linear, logaritmik, atau kategorikal.
-    *   **Label dan Judul:** Apakah grafik memiliki label yang jelas, termasuk judul, label sumbu, dan keterangan (legend)?
+    *   **Label dan Judul:** Apakah grafik memiliki label yang jelas, termasuk judul, label sumbu, dan keterangan?
     *   **Keterbacaan:** Apakah visualisasi mudah dibaca dan dimengerti oleh audiens?
-
-*  **Analisis Data**
-    *   **Temuan Utama:** Apa pola atau tren yang ditemukan dalam data? Misalnya, apakah ada hubungan antara dua variabel? Apakah ada nilai yang mencolok atau outlier?
-    *   **Insight:** Apa wawasan yang bisa diambil dari visualisasi ini? Bagaimana data bisa digunakan untuk membuat keputusan atau menjawab pertanyaan yang diajukan?
-    *   **Kesimpulan:** Apa yang bisa disimpulkan berdasarkan hasil visualisasi? Adakah rekomendasi yang dapat diberikan?
-
 
 
 # 2 Macam-macam Grafik 
@@ -315,13 +309,12 @@ plot
   *  Histogram: Untuk melihat distribusi frekuensi dari data numerik.
   *  Heatmap: Untuk menunjukkan korelasi atau hubungan antara dua variabel dalam bentuk matriks warna.
   
-**2.** Pemilihan Grafik Berdasarkan Data:
 Pemilihan grafik harus disesuaikan dengan karakteristik data yang ingin divisualisasikan. Misalnya, scatter plot sangat cocok untuk data yang ingin menunjukkan hubungan antar variabel, sedangkan bar chart lebih cocok untuk data kategori. Line chart ideal untuk data yang berhubungan dengan waktu, sementara pie chart lebih cocok untuk menunjukkan proporsi atau bagian dari keseluruhan.
 
-**3.** Menunjukkan Pola dan Tren: Visualisasi membantu kita mengenali pola dan tren dalam data yang mungkin tidak langsung terlihat dari angka atau tabel. Ini sangat penting dalam membuat keputusan berbasis data.
+Visualisasi membantu kita mengenali pola dan tren dalam data yang mungkin tidak langsung terlihat dari angka atau tabel. Ini sangat penting dalam membuat keputusan berbasis data.
 
-**4.** Menggunakan Ukuran dan Warna untuk Informasi Tambahan: Dengan memanfaatkan ukuran dan warna, kita bisa menambah dimensi lain dalam visualisasi, seperti menunjukkan volume (misalnya menggunakan ukuran titik dalam scatter plot) atau kategori (misalnya menggunakan warna untuk benua).
+*   Menggunakan Ukuran dan Warna untuk Informasi Tambahan: Dengan memanfaatkan ukuran dan warna, kita bisa menambah dimensi lain dalam visualisasi, seperti menunjukkan volume (misalnya menggunakan ukuran titik dalam scatter plot) atau kategori (misalnya menggunakan warna untuk benua).
 
-**5.** Keterbacaan dan Simplicity: Salah satu prinsip penting dalam visualisasi adalah keterbacaan. Grafik harus mudah dimengerti dan tidak berlebihan. Grafik yang terlalu rumit atau penuh dengan informasi akan membingungkan audiens.
+*   Keterbacaan dan Simplicity: Salah satu prinsip penting dalam visualisasi adalah keterbacaan. Grafik harus mudah dimengerti dan tidak berlebihan. Grafik yang terlalu rumit atau penuh dengan informasi akan membingungkan audiens.
 
-**6.** Mempermudah Pengambilan Keputusan: Dengan visualisasi yang baik, pengambilan keputusan menjadi lebih mudah dan cepat. Kita bisa melihat hubungan yang tidak langsung terlihat dan merespons masalah atau peluang dengan cara yang lebih efisien.
+*   Mempermudah Pengambilan Keputusan: Dengan visualisasi yang baik, pengambilan keputusan menjadi lebih mudah dan cepat. Kita bisa melihat hubungan yang tidak langsung terlihat dan merespons masalah atau peluang dengan cara yang lebih efisien.

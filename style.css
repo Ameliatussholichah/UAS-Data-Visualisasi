@@ -1,42 +1,109 @@
 /* style.css */
 
+/* Mengatur latar belakang halaman dan warna teks */
 body {
-    background-color: #ffffff; /* Warna latar belakang putih */
-    color: #5e4b8c; /* Warna teks ungu gelap */
-    font-family: Arial, sans-serif; /* Font yang digunakan */
+    background-color: #f4f4f9; /* Warna latar belakang soft grey */
+    color: #333; /* Warna teks abu-abu gelap */
+    font-family: 'Arial', sans-serif; /* Font umum */
+    text-align: justify; /* Menyelaraskan teks */
+    margin: 20px;
 }
 
+/* Membuat header dengan warna yang lebih terang dan sedikit bayangan */
 h1, h2, h3, h4, h5, h6 {
-    color: purple; /* Warna judul ungu tua */
+    color: #6a1b9a; /* Ungu terang */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan untuk efek 3D */
+    font-weight: bold;
 }
 
+/* Gaya untuk link agar terlihat lebih menarik */
 a {
-    color: #9b59b6; /* Warna tautan ungu cerah */
+    color: #9b59b6; /* Ungu cerah */
+    text-decoration: none; /* Menghilangkan garis bawah */
 }
 
 a:hover {
-    color: #8e44ad; /* Warna tautan saat hover */
+    color: #8e44ad; /* Ungu lebih gelap saat hover */
+    text-decoration: underline; /* Memberikan garis bawah saat hover */
 }
 
+/* Membuat tabel terlihat lebih bersih dengan border dan padding */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd; /* Border tabel warna abu-abu muda */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #9b59b6; /* Latar belakang header tabel ungu */
+    color: white; /* Teks putih pada header tabel */
+}
+
+/* Gaya untuk paragraph dengan jarak antar baris lebih luas */
 p {
     line-height: 1.6; /* Jarak antar baris */
     margin-bottom: 15px; /* Jarak antar paragraf */
 }
 
+/* Gaya untuk footer dengan latar belakang sedikit gelap */
+footer {
+    background-color: #6a1b9a; /* Warna latar belakang footer ungu */
+    color: white; /* Teks footer berwarna putih */
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* Mengatur tampilan untuk tombol */
 button {
-    background-color: #5e4b8c; /* Warna latar belakang tombol */
-    color: white; /* Warna teks tombol */
-    border: none; /* Menghilangkan border */
-    padding: 10px 15px; /* Padding dalam tombol */
-    border-radius: 5px; /* Sudut melengkung */
-    cursor: pointer; /* Mengubah kursor saat hover */
+    background-color: #9b59b6; /* Warna tombol ungu cerah */
+    color: white; /* Teks putih */
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px; /* Sudut tombol melengkung */
+    cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #4b3d6b; /* Warna latar belakang saat hover */
+    background-color: #8e44ad; /* Warna tombol berubah saat hover */
 }
 
+/* Mengatur margin dan padding untuk bagian konten utama */
+main {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #ffffff; /* Latar belakang konten utama putih */
+    border-radius: 10px; /* Membulatkan sudut konten */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+}
+
+/* Membuat kotak teks lebih menarik */
+input[type="text"], textarea {
+    padding: 10px;
+    border: 1px solid #ddd; /* Border abu-abu muda */
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Menyesuaikan tampilan daftar */
 ul {
-    list-style-type: square; /* Mengubah jenis bullet */
+    list-style-type: square; /* Jenis bullet berbentuk persegi */
     padding-left: 20px; /* Memberikan padding di sebelah kiri */
+}
+
+li {
+    margin-bottom: 8px; /* Memberikan jarak antar item daftar */
 }
