@@ -1,5 +1,5 @@
 ---
-title: "Visualisasi Data dengan Berbagai Macam Grafik(UAS-Data Visualisasi)"
+title: "Visualisasi Data dengan Berbagai Macam Grafik (UAS-Data Visualisasi)"
 author: "**Ameliatus Sholichah(A3202300024)<br>Institut Teknologi Statistika dan Bisnis Muhammadiyah Semarang**"
 date: "`r Sys.Date()`"
 output: 
@@ -144,7 +144,7 @@ View(Data)
 library(ggplot2)
 # Lalu Membuat line chart
 ggplot(data = subset(Data, Negara == "Afghanistan"), aes(x = Tahun, y = Angka_Harapan_Hidup)) +
-  geom_line(linewidth = 1, color = "blue", size = 3) +
+  geom_line(linewidth = 1, color = "blue") +
   labs(title = "Perubahan Angka Harapan Hidup di Afghanistan",
        x = "Tahun",
        y = "Angka Harapan Hidup") +
@@ -153,7 +153,7 @@ ggplot(data = subset(Data, Negara == "Afghanistan"), aes(x = Tahun, y = Angka_Ha
 ```{r}
 # Mencoba pada tiap Benua
 ggplot(data = Data, aes(x = Tahun, y = Angka_Harapan_Hidup)) +
-  geom_line(aes(color = Benua), size = 1) +
+  geom_line(aes(color = Benua), linewidth = 1) +
   facet_wrap(~Benua) +
   labs(title = "Perubahan Angka Harapan Hidup Tiap Benua",
        x = "Tahun",
@@ -170,6 +170,7 @@ ggplot(data = Data, aes(x = Tahun, y = Angka_Harapan_Hidup)) +
   *  `labs():` Menambahkan label pada grafik.
   *  `facet_wrap():` Digunakan untuk membuat plot yang memecah data berdasarkan satu atau lebih variabel kategori.
   *  `theme_minimal():` Memberikan tema minimalis pada grafik(tampilan yang bersih tanpa banyak garis dan warna).
+  
 
 ## 2.3 Grafik Multivariat
 Grafik Multivariat digunakan untuk menganalisis lebih dari dua variabel. Grafik ini membantu melihat pola, hubungan, atau tren yang melibatkan lebih dari dua variabel sekaligus.
@@ -190,7 +191,7 @@ View(Data)
 ```
 *   **Code:**
 ```{r}
-#Muat Library plotly
+# Muat Library plotly
 library(plotly)
 # Membuat 3D scatter plot
 plot_ly(data = Data, 
@@ -200,10 +201,44 @@ plot_ly(data = Data,
         type = "scatter3d", 
         mode = "markers", 
         color = ~Benua,  # Warna berdasarkan benua
-        size = ~Populasi,  # Ukuran titik berdasarkan populasi
+        size = ~20,  # Ukuran titik
         text = ~Negara)  # Menambahkan nama negara sebagai tooltip
 ```
 
+**Keterangan:**
+
+  *  `library(plotly):` Memuat pustaka plotly yang digunakan untuk membuat grafik 3D.
+  *  `plot_ly():` Untuk membuat plot interaktif.
+  *  `type = "scatter3d":` Menentukan jenis plot sebagai scatter plot 3D.
+  *  `mode = "markers":` Menentukan bahwa grafik ini akan menampilkan titik-titik data (markers).
+  *  `color = ~Benua:` Menentukan warna titik-titik dalam grafik akan ditentukan berdasarkan variabel Benua.
+  *  `size = ~20:` Menentukan ukuran titik.
+  *  `text = ~Negara:` Menambahkan nama negara sebagai tooltip yang akan muncul ketika pengguna mengarahkan kursor ke titik tertentu.
+
+Contoh Sederhana Cara Membuat **Grafik Heatmap**:
+
+```{r}
+# Muat library ggplot2
+library(ggplot2)
+# Membuat Heatmap
+ggplot(Data, aes(x = Tahun, y = Benua, fill = Angka_Harapan_Hidup)) +
+  geom_tile() +
+  scale_fill_gradient(low = "yellow", high = "brown", name = "Angka\nHarapan\nHidup") +
+  labs(title = "Heatmap Angka Harapan Hidup Berdasarkan Benua dan Tahun",
+       x = "Tahun",
+       y = "Benua") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+**Keterangan**
+
+  *  `ggplot():` ggplot digunakan untuk membuat plot menggunakan data dari objek Data.
+  *  `geom_tile():` Untuk membuat visualisasi berbentuk tile (ubin) setiap ubin akan memiliki warna berdasarkan nilai Pendapatan_per_kapita.
+  *  `scale_fill_gradient():` Fungsi ini mengatur skala warna untuk heatmap.
+  *  `geom_hline():` Menambahkan garis horizontal (hline) pada plot.
+  *  `theme(axis.text.x):` Menyesuaikan tampilan teks pada sumbu X.
+  
 
 ## 2.4 Grafik Interaktif
 Grafik Interaktif memungkinkan pengguna untuk berinteraksi langsung dengan visualisasi, seperti memfilter, memperbesar, atau memilih data tertentu untuk analisis lebih mendalam.
@@ -213,4 +248,80 @@ Grafik Interaktif memungkinkan pengguna untuk berinteraksi langsung dengan visua
   *   **Interactive Maps:** Peta yang memungkinkan pengguna untuk mengeksplorasi data geografis secara interaktif, seperti peta suhu atau populasi berdasarkan wilayah.
   *   **Plotly atau Shiny:** Alat untuk membuat grafik interaktif menggunakan bahasa pemrograman R, memungkinkan pengguna untuk berinteraksi dengan visualisasi.
 
+Contoh Sederhana Cara Membuat **Grafik Interactive**:
+
+*   **Read Data:**
+```{r}
+#Pertama membaca file .xlsx menggunakan readxl
+#Jika belum menginstall bisa install di packages
+library(readxl)
+Data <- read_excel("Data.xlsx")
+View(Data)
+```
+*   **Code:**
+```{r}
+# Muat Library plotly dan dplyr
+library(plotly)
+library(dplyr)
+# Membuat grafik interaktif scatter plot
+plot <- plot_ly(
+  data = Data,
+  x = ~Tahun,  # Sumbu X: Tahun
+  y = ~Pendapatan_per_kapita, # Sumbu Y: Angka harapan hidup
+  size = ~20,   # Ukuran lingkaran
+  color = ~Benua,   # Warna berdasarkan benua
+  text = ~paste(
+    "Negara:", Negara,
+    "<br>Benua:", Benua,
+    "<br>Populasi:", Populasi,
+    "<br>Pendapatan per Kapita:", Pendapatan_per_kapita,
+    "<br>Angka Harapan Hidup:", Angka_Harapan_Hidup),
+  type = "scatter",
+  mode = "markers") %>%
+  layout(
+    title = "Grafik Interaktif: Tahun vs Angka Harapan Hidup",
+    xaxis = list(title = "Tahun"),
+    yaxis = list(title = "Angka Harapan Hidup"),
+    legend = list(title = list(text = "Benua")))
+
+# Menampilkan plot
+plot
+```
+
+**Keterangan:**
+
+  *  `plotly:` digunakan untuk membuat grafik interaktif.
+  *  `dplyr:` digunakan untuk manipulasi data.
+  *  `plot_ly():` Fungsi utama untuk membuat grafik Plotly
+  *  `type = "scatter":` Jenis grafik yang digunakan, yaitu grafik sebar (scatter plot).
+  *  `mode = "markers":` Menentukan jenis titik dalam grafik (markers atau lingkaran).
+  *  `layout():` Digunakan untuk menyesuaikan tampilan grafik.
+  *  `Plot:` Digunakan untuk menampilkan grafik yang sudah dibuat.
+
+
 # Kesimpulan
+
+**Kesimpulan dari Visualisasi Data dengan Berbagai Macam Grafik:**
+
+**Visualisasi data** dengan berbagai macam grafik memberikan insight yang lebih mendalam daripada hanya menggunakan data mentah. Dengan memilih grafik yang tepat dan menyajikan data dengan cara yang mudah dimengerti, kita dapat membuat keputusan yang lebih berbasis pada bukti dan data, yang sangat penting dalam berbagai bidang seperti bisnis, sains, dan pemerintahan.
+
+**1.** Berbagai Jenis Grafik: Setiap jenis grafik memiliki tujuan dan keunggulan tersendiri, dan pemilihan grafik yang tepat sangat bergantung pada tipe data dan tujuan analisis. Beberapa grafik yang sering digunakan adalah:
+
+  *  Scatter Plot: Untuk menggambarkan hubungan antara dua variabel numerik.
+  *  Bar Chart: Untuk membandingkan kategori atau grup dalam data.
+  *  Line Chart: Untuk menunjukkan tren atau perubahan dalam data seiring waktu.
+  *  Pie Chart: Untuk menunjukkan proporsi atau persentase antar kategori.
+  *  Box Plot: Untuk menggambarkan distribusi data, termasuk median, kuartil, dan outlier.
+  *  Histogram: Untuk melihat distribusi frekuensi dari data numerik.
+  *  Heatmap: Untuk menunjukkan korelasi atau hubungan antara dua variabel dalam bentuk matriks warna.
+  
+**2.** Pemilihan Grafik Berdasarkan Data:
+Pemilihan grafik harus disesuaikan dengan karakteristik data yang ingin divisualisasikan. Misalnya, scatter plot sangat cocok untuk data yang ingin menunjukkan hubungan antar variabel, sedangkan bar chart lebih cocok untuk data kategori. Line chart ideal untuk data yang berhubungan dengan waktu, sementara pie chart lebih cocok untuk menunjukkan proporsi atau bagian dari keseluruhan.
+
+**3.** Menunjukkan Pola dan Tren: Visualisasi membantu kita mengenali pola dan tren dalam data yang mungkin tidak langsung terlihat dari angka atau tabel. Ini sangat penting dalam membuat keputusan berbasis data.
+
+**4.** Menggunakan Ukuran dan Warna untuk Informasi Tambahan: Dengan memanfaatkan ukuran dan warna, kita bisa menambah dimensi lain dalam visualisasi, seperti menunjukkan volume (misalnya menggunakan ukuran titik dalam scatter plot) atau kategori (misalnya menggunakan warna untuk benua).
+
+**5.** Keterbacaan dan Simplicity: Salah satu prinsip penting dalam visualisasi adalah keterbacaan. Grafik harus mudah dimengerti dan tidak berlebihan. Grafik yang terlalu rumit atau penuh dengan informasi akan membingungkan audiens.
+
+**6.** Mempermudah Pengambilan Keputusan: Dengan visualisasi yang baik, pengambilan keputusan menjadi lebih mudah dan cepat. Kita bisa melihat hubungan yang tidak langsung terlihat dan merespons masalah atau peluang dengan cara yang lebih efisien.
